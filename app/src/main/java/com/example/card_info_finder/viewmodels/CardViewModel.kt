@@ -25,14 +25,13 @@ class CardViewModel @Inject constructor() :
     lateinit var networkRepository: NetworkRepository
 
     var response = MutableLiveData<Resource<ApiResponse>>()
-    var amount: Int? = null
 
-    fun getDetails() {
+    fun getDetails(number: Int) {
 
         CoroutineScope(Dispatchers.Main).launch {
             response.postValue(Resource.loading(data = null))
             try {
-                val requestResponse = networkRepository.getCardDetails(45717360)
+                val requestResponse = networkRepository.getCardDetails(number)
                 response.postValue(Resource.success(requestResponse))
                 Log.i("response", response.toString())
             } catch (t: Throwable) {

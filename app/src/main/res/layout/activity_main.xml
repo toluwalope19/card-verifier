@@ -8,12 +8,14 @@
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/transaction_reference_input"
+        android:id="@+id/cardNumber"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:ems="10"
+        android:maxLength="8"
         android:inputType="number"
+        android:textSize="32sp"
         android:paddingBottom="12dp"
         android:textColor="@color/white"
         android:backgroundTint="@color/white"
@@ -33,7 +35,7 @@
         app:layout_constraintGuide_percent="0.4" />
 
     <android.widget.Button
-        android:id="@+id/initiate_transaction_button"
+        android:id="@+id/checkCard"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/check"
@@ -47,9 +49,10 @@
         app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     <ProgressBar
+        android:id="@+id/progress_bar"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="@id/guideline4"
         app:layout_constraintBottom_toTopOf="@id/guideline5"
         />

@@ -2,7 +2,10 @@ package com.example.card_info_finder
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -30,8 +33,13 @@ class MainActivity : DaggerAppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.cardNumber.addTextChangedListener(cadTextWatcher)
         viewModel = ViewModelProvider(this, factory).get(CardViewModel::class.java)
-        viewModel.getDetails()
+
+        binding.checkCard.setOnClickListener {
+            val number = binding.cardNumber.text.toString()
+            viewModel.getDetails(number.toInt())
+        }
         setUpObserver()
     }
 
@@ -43,15 +51,35 @@ class MainActivity : DaggerAppCompatActivity() {
                     Status.SUCCESS -> {
                         Log.i("yeeeah",resource.data.toString())
                         resource.data
+                        binding.progressBar.visibility=  View.GONE
                     }
                     Status.ERROR-> {
+                        binding.progressBar.visibility=  View.GONE
                         Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
                     }
                     Status.LOADING ->{
+                        binding.progressBar.visibility=  View.VISIBLE
                         Toast.makeText(this, "loading", Toast.LENGTH_LONG).show()
                     }
                 }
             }
         })
     }
+
+
+
+    private val cadTextWatcher = object : TextWatcher {
+        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+        }
+
+        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            val text = binding.cardNumber.text.toString()
+            binding.checkCard.isEnabled = text.length >= 6
+        }
+
+        override fun afterTextChanged(s: Editable?) {
+        }
+    }
+
+
 }
