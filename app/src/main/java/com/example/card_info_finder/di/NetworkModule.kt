@@ -42,8 +42,8 @@ class NetworkModule {
     }
 
     @Provides
-    fun provideRepository(): NetworkRepository {
-        return NetworkRepository()
+    fun provideRepository(cardInfoApi: CardInfoApi): NetworkRepository {
+        return NetworkRepository(cardInfoApi)
     }
 
 
