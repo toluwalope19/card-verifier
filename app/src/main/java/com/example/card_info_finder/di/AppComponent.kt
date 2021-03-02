@@ -13,7 +13,8 @@ import dagger.android.support.AndroidSupportInjectionModule
     AndroidInjectionModule::class,
     ActivityBuildersModule::class,
     AppModule::class,
-    NetworkModule::class
+    NetworkModule::class,
+    ViewModelFactoryModule::class
 ])
 interface AppComponent : AndroidInjector<BaseApplication> {
 

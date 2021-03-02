@@ -5,6 +5,7 @@ import com.example.card_info_finder.model.ApiResponse
 import com.example.card_info_finder.network.api.CardInfoApi
 import com.example.card_info_finder.network.interceptors.NetworkConnectivityInterceptor
 import com.example.card_info_finder.network.interceptors.NetworkResponseInterceptor
+import com.example.card_info_finder.repository.NetworkRepository
 import com.example.card_info_finder.util.NetworkConstants
 import dagger.Module
 import dagger.Provides
@@ -39,4 +40,11 @@ class NetworkModule {
     fun provideCardInfoService(retrofit: Retrofit): CardInfoApi {
         return retrofit.create(CardInfoApi::class.java)
     }
+
+    @Provides
+    fun provideRepository(): NetworkRepository {
+        return NetworkRepository()
+    }
+
+
 }
