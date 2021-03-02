@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Card_Info_Finder</string>
+    <string name="type_here">type card number here</string>
+    <string name="check">check</string>
 </resources>
