@@ -35,11 +35,7 @@ class MainActivity : DaggerAppCompatActivity() {
         setContentView(binding.root)
         binding.cardNumber.addTextChangedListener(cadTextWatcher)
         viewModel = ViewModelProvider(this, factory).get(CardViewModel::class.java)
-
-        binding.checkCard.setOnClickListener {
-            val number = binding.cardNumber.text.toString()
-            viewModel.getDetails(number.toInt())
-        }
+        setUpListeners()
         setUpObserver()
     }
 
@@ -52,12 +48,16 @@ class MainActivity : DaggerAppCompatActivity() {
                         Log.i("yeeeah",resource.data.toString())
                         resource.data
                         binding.progressBar.visibility=  View.GONE
+                        binding.checkCard.text = getString(R.string.check)
                     }
                     Status.ERROR-> {
+                        binding.checkCard.text = getString(R.string.check)
                         binding.progressBar.visibility=  View.GONE
                         Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
                     }
                     Status.LOADING ->{
+                        binding.progressBar.translationZ = 42F
+                        binding.checkCard.text = getString(R.string.checking)
                         binding.progressBar.visibility=  View.VISIBLE
                         Toast.makeText(this, "loading", Toast.LENGTH_LONG).show()
                     }
@@ -71,15 +71,24 @@ class MainActivity : DaggerAppCompatActivity() {
     private val cadTextWatcher = object : TextWatcher {
         override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
         }
-
         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
             val text = binding.cardNumber.text.toString()
             binding.checkCard.isEnabled = text.length >= 6
+            binding.clearButton.visibility =View.VISIBLE
         }
-
         override fun afterTextChanged(s: Editable?) {
         }
     }
 
+    private fun setUpListeners(){
 
+        binding.checkCard.setOnClickListener {
+            val number = binding.cardNumber.text.toString()
+            viewModel.getDetails(number.toInt())
+        }
+
+        binding.clearButton.setOnClickListener {
+            binding.cardNumber.setText("")
+        }
+    }
 }

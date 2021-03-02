@@ -39,10 +39,10 @@ class CardViewModel @Inject constructor() :
                 response.postValue(
                     Resource.error(
                         message = when (t) {
-                            is NetworkException -> "Error: ${t.code}, Network Error"
-                            is NoNetworkException -> "Please check your connectivity"
+                            is NetworkException -> "Error: ${t.code}, Incorrect card details"
+                            is NoNetworkException -> "Please check your connectivity and try again"
                             is ServerException -> "Cannot connect to server"
-                            else -> "Oops, something went wrong"
+                            else -> "Oops, something went wrong, Please try Again"
                         }, data = null
                     )
                 )
