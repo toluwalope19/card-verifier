@@ -3,24 +3,16 @@ package com.example.card_info_finder
 import com.example.card_info_finder.model.ApiResponse
 import com.example.card_info_finder.model.Bank
 import com.example.card_info_finder.model.Country
-import com.example.card_info_finder.model.Number
 import com.example.card_info_finder.network.api.CardInfoApi
 import com.example.card_info_finder.repository.NetworkRepository
 import com.nhaarman.mockitokotlin2.given
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.test.runBlockingTest
-import org.junit.Assert.assertEquals
-import org.junit.Before
-import org.junit.Rule
-import org.junit.Test
-import org.junit.runner.RunWith
-import org.mockito.InjectMocks
-import org.mockito.Mock
-import org.mockito.Mockito.mock
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
-import org.mockito.MockitoAnnotations
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.runBlocking
+import org.junit.Before
+import org.junit.Test
+import org.junit.runner.RunWith
 import org.mockito.junit.MockitoJUnitRunner
 
 
