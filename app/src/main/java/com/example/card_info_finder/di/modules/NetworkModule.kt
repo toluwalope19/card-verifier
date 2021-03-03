@@ -1,7 +1,6 @@
-package com.example.card_info_finder.di
+package com.example.card_info_finder.di.modules
 
 import android.content.Context
-import com.example.card_info_finder.model.ApiResponse
 import com.example.card_info_finder.network.api.CardInfoApi
 import com.example.card_info_finder.network.interceptors.NetworkConnectivityInterceptor
 import com.example.card_info_finder.network.interceptors.NetworkResponseInterceptor

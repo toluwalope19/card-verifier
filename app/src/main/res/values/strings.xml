@@ -3,4 +3,12 @@
     <string name="type_here">type card number here</string>
     <string name="check">check</string>
     <string name="checking">checking..</string>
+    <string name="bank_with_mint">Bank with Mint</string>
+    <string name="debit">Debit</string>
+    <string name="bank_with_min">BANK WITH MINT</string>
+    <string name="country">Country</string>
+    <string name="countryY">COUNTRY</string>
+    <string name="cardbrand">cardBrand :</string>
+    <string name="scheme">scheme</string>
+    <string name="enter_bin_here">Enter BIN Here</string>
 </resources>
