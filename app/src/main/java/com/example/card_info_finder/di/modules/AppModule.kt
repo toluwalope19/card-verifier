@@ -1,4 +1,4 @@
-package com.example.card_info_finder.di
+package com.example.card_info_finder.di.modules
 
 import android.content.Context
 import com.example.card_info_finder.BaseApplication

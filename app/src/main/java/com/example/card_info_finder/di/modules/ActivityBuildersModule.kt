@@ -1,4 +1,4 @@
-package com.example.card_info_finder.di
+package com.example.card_info_finder.di.modules
 
 import com.example.card_info_finder.MainActivity
 import dagger.Module

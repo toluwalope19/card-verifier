@@ -1,6 +1,6 @@
 package com.example.card_info_finder
 
-import com.example.card_info_finder.di.AppModule
+import com.example.card_info_finder.di.modules.AppModule
 import com.example.card_info_finder.di.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
